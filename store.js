@@ -31,6 +31,7 @@ function addToBox(title, picture, fiat) {
     cardRow.innerHTML = cardRowContent
     cardItems.append(cardRow)
     cardRow.getElementsByClassName("btn-danger")[0].addEventListener("click", clickToRemoveBox)
+    cardRow.getElementsByClassName("cart-quantity-input")[0].addEventListener("change",inputControl)
     console.log(cardItems)
 }
 
@@ -43,5 +44,13 @@ for (let index = 0; index < cardToRemove.length; index++) {
 function clickToRemoveBox(params) {
     let butonClick = params.target
     butonClick.parentElement.parentElement.remove()
+    
+}
+
+function inputControl(params) {
+    let inputControlP=params.target
+     if (inputControlP.value <= 0 || isNaN(inputControlP.value)) {
+        inputControlP.value = 1
+     }
     
 }
