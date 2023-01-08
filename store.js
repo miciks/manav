@@ -30,5 +30,18 @@ function addToBox(title, picture, fiat) {
 
     cardRow.innerHTML = cardRowContent
     cardItems.append(cardRow)
+    cardRow.getElementsByClassName("btn-danger")[0].addEventListener("click", clickToRemoveBox)
     console.log(cardItems)
+}
+
+let cardToRemove = document.querySelectorAll(".btn-danger")
+
+for (let index = 0; index < cardToRemove.length; index++) {
+    const removeButton = cardToRemove[index];
+    removeButton.addEventListener("click", clickToRemoveBox)
+}
+function clickToRemoveBox(params) {
+    let butonClick = params.target
+    butonClick.parentElement.parentElement.remove()
+    
 }
